@@ -13,5 +13,8 @@ router.get('/kiosk', function(req, res, next){
 router.get('/user', function(req, res, next){
   res.render('user/user');
 });
+router.get('/control', function(req, res, next){
+  res.render('user/control');
+});
 
 module.exports = router;

@@ -7,10 +7,6 @@
 				<div class="logo" style="width: 360px;">
 					<div class="square"></div>
 				</div>
-				<!-- <span class="text-big">
-					맥도날드
-				</span> -->
-
 			</div>
 		</div>
 		<div class="partition partition-6 height-100">
@@ -44,13 +40,13 @@
 		</div>
 		<div class="partition partition-6 height-100">
 			<div class="screen-middle">
-				<button class="button background-yellow color-black text-title">
+				<button class="button background-yellow color-black text-title toSelectMenu">
 					Eat In
 				</button>
 				<br>
 				<br>
 				<br>
-				<button class="button background-yellow color-black text-title">
+				<button class="button background-yellow color-black text-title toSelectMenu">
 					Take Out
 				</button>
 			</div>
@@ -65,61 +61,94 @@
 				<div class="text-subtitle">
 					Welcome back, Mr. Maro!
 				</div>
-				<div class="selectable-list">
-					<div class="selectable-item background-white color-black">
+				<div class="selectable-list" id="major">
+					<div class="selectable-item background-white color-black animation">
 						<div class="partition partition-12 padding-20">
 							<div class="text-title">
-								Especially for you!
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="selectable-item background-white color-black">
-						<div class="partition partition-12 padding-20">
-							<div class="text-title">
-								You recently ordered
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="selectable-item background-white color-black">
-						<div class="partition partition-12 padding-20">
-							<div class="text-title">
-								Burgers
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="selectable-item background-white color-black">
-						<div class="partition partition-12 padding-20">
-							<div class="text-title">
-								Happy meals
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="selectable-item background-white color-black">
-						<div class="partition partition-12 padding-20">
-							<div class="text-title">
-								Main menu
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</div>
-					<div class="selectable-item background-white color-black">
-						<div class="partition partition-12 padding-20">
-							<div class="text-title">
-								Deserts
+								${name}
 							</div>
 						</div>
 						<div class="clearfix"></div>
 					</div>
 				</div>
+				<!-- <div class="selectable-item background-white color-black">
+					<div class="partition partition-12 padding-20">
+						<div class="text-title">
+							Especially for you!
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="selectable-item background-white color-black">
+					<div class="partition partition-12 padding-20">
+						<div class="text-title">
+							You recently ordered
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="selectable-item background-white color-black">
+					<div class="partition partition-12 padding-20">
+						<div class="text-title">
+							Burgers
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="selectable-item background-white color-black">
+					<div class="partition partition-12 padding-20">
+						<div class="text-title">
+							Happy meals
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="selectable-item background-white color-black">
+					<div class="partition partition-12 padding-20">
+						<div class="text-title">
+							Main menu
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="selectable-item background-white color-black">
+					<div class="partition partition-12 padding-20">
+						<div class="text-title">
+							Deserts
+						</div>
+					</div>
+					<div class="clearfix"></div>
+				</div> -->
 			</div>
 		</div>
 		<div class="partition partition-7 height-100 scrollable">
-			<div class="selectable-list">
+			<div class="loading align-center screen-middle">
+				<div class="lds-facebook">
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+				<div class="text-title color-white">
+					We are bringing menus that you might like.
+				</div>
+			</div>
+			<div class="selectable-list hide" id="minor">
 				<div class="selectable-item background-white color-black">
+					<div class="partition partition-4">
+						<img src="/img/${image}" alt="" style="width: 100%;">
+					</div>
+					<div class="partition partition-8">
+						<span class="text-title">
+							${name}
+						</span>
+						<br>
+						<span class="text-description strike-red">£${old_price}</span>
+						<span class="text-subtitle">£${new_price}</span>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<!-- <div class="selectable-item background-white color-black">
 					<div class="partition partition-4">
 						<img src="/img/bigmac.png" alt="" style="width: 100%;">
 					</div>
@@ -163,8 +192,7 @@
 						</span>
 					</div>
 					<div class="clearfix"></div>
-				</div>
-			</div>
+				</div> -->
 		</div>
 		<div class="screen-bottom align-right">
 			<button class="button background-yellow color-black text-title">
@@ -176,4 +204,5 @@
 		4
 	</div>
 </div>
+<script src="/js/kiosk.js"></script>
 <%- include("footer") %>
