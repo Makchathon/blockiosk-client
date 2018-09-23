@@ -29,19 +29,22 @@ $(document).ready(function () {
 					name: "Big Mac",
 					image: "bigmac.png",
 					old_price: "3.19",
-					new_price: "2.99"
+					new_price: "2.99",
+					percent: "79"
 				},
 				{
 					name: "Hamburger",
 					image: "hamburger.png",
 					old_price: "0.89",
-					new_price: "0.79"
+					new_price: "0.79",
+					percent: "77"
 				},
 				{
 					name: "Grilled Chicken Salad",
 					image: "grilled-chicken-salad.png",
 					old_price: "3.33",
-					new_price: "2.19"
+					new_price: "2.19",
+					percent: "86"
 				}
 			]
 		},
@@ -80,13 +83,15 @@ $(document).ready(function () {
 					name: "Vanilla Spice Latte",
 					image: "vanilla-spice-latte.jpg",
 					old_price: "3.25",
-					new_price: "3.05"
+					new_price: "3.05",
+					percent: "82"
 				},
 				{
 					name: "Caffe Latte",
 					image: "caffe-latte.jpg",
 					old_price: "2.25",
-					new_price: "2.05"
+					new_price: "2.05",
+					percent: "77"
 				}
 			]
 		},
@@ -119,19 +124,22 @@ $(document).ready(function () {
 					name: "Pepperoni Passion",
 					image: "pepperoni_passion.png",
 					old_price: "13.99",
-					new_price: "11.99"
+					new_price: "11.99",
+					percent: "65"
 				},
 				{
 					name: "Potato Wedges",
 					image: "potato-wedges.jpg",
 					old_price: "3.99",
-					new_price: "2.99"
+					new_price: "2.99",
+					percent: "49"
 				},
 				{
 					name: "Coleslaw 200g tub",
 					image: "coleslaw.jpg",
 					old_price: "1.99",
-					new_price: "1.29"
+					new_price: "1.29",
+					percent: "79"
 				}
 			]
 		}
@@ -174,23 +182,44 @@ $(document).ready(function () {
 	var minorRenderer = new Maro.listRenderer("#minor", $("#minor").html());
 
 	var changeData = function (brand) {
+
 		$("body").attr("class", "");
 		$("body").addClass(brand);
 
-		
+
 		$(".loading").removeClass("hide");
 		$("#minor").addClass("hide");
 
-		console.log(data[brand].major);
-		majorRenderer.setRenderData(data[brand].major);
-		minorRenderer.setRenderData(data[brand].minor);
-		setTimeout(function () {
-			animationEffect();
-		}, 100);
-		setTimeout(function () {
-			$(".loading").addClass("hide");
-			$("#minor").removeClass("hide");
-		}, 2500);
+		// https://fabius.ciceron.xyz:5001/checkin
+
+		var formData = new FormData();
+		formData.append("store", brand);
+		$.ajax({
+			url: 'https://fabius.ciceron.xyz:5001/checkin',
+			processData: false,
+			contentType: false,
+			dataType: "json",
+			data: formData,
+			cache: false,
+			type: 'POST'
+		}).done(function (data) {
+		}).fail(function () {
+		}).always(function () {
+
+			majorRenderer.setRenderData(data[brand].major);
+			minorRenderer.setRenderData(data[brand].minor);
+			setTimeout(function () {
+				animationEffect();
+			}, 100);
+			setTimeout(function () {
+				$(".loading").addClass("hide");
+				$("#minor").removeClass("hide");
+			}, 2500);
+
+		});
+
+
+
 	}
 
 	changeData("mcdonalds");

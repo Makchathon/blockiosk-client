@@ -248,6 +248,9 @@
     .color-black {
         color: black;
     }
+    .color-gray{
+        color: gray;
+    }
     .partition {
         position: relative;
         float: left;
